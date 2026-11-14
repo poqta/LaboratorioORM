@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.laboratorioorm.controller.EquipoController">
+
+
+    <children>
+
+        <AnchorPane layoutX="0" layoutY="0" prefHeight="78" prefWidth="1050" style="-fx-background-color: #182B49;">
+            <children>
+                <Label layoutX="25" layoutY="15" style="-fx-font-size: 22px;                               -fx-font-weight: bold;                               -fx-text-fill: white;" text="CONTROL DE EQUIPOS DE LABORATORIO" />
+
+                <Label layoutX="27" layoutY="49" style="-fx-font-size: 12px;                               -fx-text-fill: #CBD5E1;" text="Sistema de gestión de inventario universitario" />
+            </children>
+        </AnchorPane>
+
+        <AnchorPane layoutX="18" layoutY="95" prefHeight="505" prefWidth="335" style="-fx-background-color: white;                            -fx-background-radius: 10;                            -fx-border-color: #E2E8F0;                            -fx-border-radius: 10;">
+            <children>
+
+                <Label layoutX="20" layoutY="14" style="-fx-font-size: 17px;                               -fx-font-weight: bold;                               -fx-text-fill: #1E293B;" text="Información del equipo" />
+
+                <Label layoutX="20" layoutY="51" style="-fx-font-weight: bold;                               -fx-text-fill: #475569;" text="ID (automático)" />
+
+                <TextField fx:id="txtId" editable="false" focusTraversable="false" layoutX="20" layoutY="73" prefHeight="32" prefWidth="105" promptText="Automático" style="-fx-background-color: #E2E8F0;" />
+
+                <Label layoutX="140" layoutY="51" style="-fx-font-weight: bold;                               -fx-text-fill: #475569;" text="Código" />
+
+                <TextField fx:id="txtCodigo" layoutX="140" layoutY="73" prefHeight="32" prefWidth="175" promptText="Ej. EQ009" />
+
+                <Label layoutX="20" layoutY="117" style="-fx-font-weight: bold;                               -fx-text-fill: #475569;" text="Nombre del equipo" />
+
+                <TextField fx:id="txtNombre" layoutX="20" layoutY="139" prefHeight="32" prefWidth="295" promptText="Nombre del equipo" />
+
+                <Label layoutX="20" layoutY="183" style="-fx-font-weight: bold;                               -fx-text-fill: #475569;" text="Marca" />
+
+                <TextField fx:id="txtMarca" layoutX="20" layoutY="205" prefHeight="32" prefWidth="140" promptText="Ej. Dell" />
+
+                <Label layoutX="175" layoutY="183" style="-fx-font-weight: bold;                               -fx-text-fill: #475569;" text="Cantidad" />
+
+                <TextField fx:id="txtCantidad" layoutX="175" layoutY="205" prefHeight="32" prefWidth="140" promptText="Ej. 5" />
+
+                <Label layoutX="20" layoutY="249" style="-fx-font-weight: bold;                               -fx-text-fill: #475569;" text="Tipo de equipo" />
+
+                <ComboBox fx:id="cmbTipoEquipo" layoutX="20" layoutY="271" prefHeight="32" prefWidth="295" promptText="Seleccione el tipo" />
+
+                <Label layoutX="20" layoutY="315" style="-fx-font-weight: bold;                               -fx-text-fill: #475569;" text="Estado" />
+
+                <ComboBox fx:id="cmbEstado" layoutX="20" layoutY="337" prefHeight="32" prefWidth="295" promptText="Seleccione el estado" />
+
+                <Button fx:id="btnGuardar" layoutX="20" layoutY="397" onAction="#guardarEquipo" prefHeight="36" prefWidth="140" style="-fx-background-color: #2563EB;                                -fx-text-fill: white;                                -fx-font-weight: bold;                                -fx-background-radius: 7;" text="Guardar" />
+
+                <Button fx:id="btnActualizar" layoutX="175" layoutY="397" onAction="#actualizarEquipo" prefHeight="36" prefWidth="140" style="-fx-background-color: #0F766E;                                -fx-text-fill: white;                                -fx-font-weight: bold;                                -fx-background-radius: 7;" text="Actualizar" />
+
+                <Button fx:id="btnEliminar" layoutX="20" layoutY="448" onAction="#eliminarEquipo" prefHeight="36" prefWidth="140" style="-fx-background-color: #BE123C;                                -fx-text-fill: white;                                -fx-font-weight: bold;                                -fx-background-radius: 7;" text="Eliminar" />
+
+                <Button fx:id="btnLimpiar" layoutX="175" layoutY="448" onAction="#limpiarFormulario" prefHeight="36" prefWidth="140" style="-fx-background-color: #E2E8F0;                                -fx-text-fill: #334155;                                -fx-font-weight: bold;                                -fx-background-radius: 7;" text="Limpiar" />
+
+            </children>
+        </AnchorPane>
+
+        <AnchorPane layoutX="370" layoutY="95" prefHeight="505" prefWidth="662" style="-fx-background-color: white;                            -fx-background-radius: 10;                            -fx-border-color: #E2E8F0;                            -fx-border-radius: 10;">
+            <children>
+
+                <Label layoutX="20" layoutY="14" style="-fx-font-size: 17px;                               -fx-font-weight: bold;                               -fx-text-fill: #1E293B;" text="Inventario registrado" />
+
+                <Label layoutX="20" layoutY="56" style="-fx-font-weight: bold;                               -fx-text-fill: #475569;" text="Buscar por nombre" />
+
+                <TextField fx:id="txtBuscar" layoutX="20" layoutY="78" prefHeight="32" prefWidth="230" promptText="Buscar equipo..." />
+
+                <Label layoutX="265" layoutY="56" style="-fx-font-weight: bold;                               -fx-text-fill: #475569;" text="Filtrar por tipo" />
+
+                <ComboBox fx:id="cmbFiltroTipo" layoutX="265" layoutY="78" prefHeight="32" prefWidth="195" promptText="Todos los tipos" />
+
+                <Button fx:id="btnBuscar" layoutX="475" layoutY="78" onAction="#buscarEquipos" prefHeight="32" prefWidth="165" style="-fx-background-color: #2563EB;                                -fx-text-fill: white;                                -fx-font-weight: bold;                                -fx-background-radius: 7;" text="Buscar / Filtrar" />
+
+                <TableView fx:id="tblEquipos" layoutX="20" layoutY="132" prefHeight="350" prefWidth="620">
+
+                    <columns>
+                        <TableColumn fx:id="colCodigo" prefWidth="75" text="Código" />
+
+                        <TableColumn fx:id="colNombre" prefWidth="140" text="Nombre" />
+
+                        <TableColumn fx:id="colMarca" prefWidth="80" text="Marca" />
+
+                        <TableColumn fx:id="colEstado" prefWidth="125" text="Estado" />
+
+                        <TableColumn fx:id="colCantidad" prefWidth="75" text="Cantidad" />
+
+                        <TableColumn fx:id="colTipoEquipo" prefWidth="120" text="Tipo de equipo" />
+                    </columns>
+
+                </TableView>
+
+            </children>
+        </AnchorPane>
+
+    </children>
+
+</AnchorPane>
